@@ -22,7 +22,7 @@ addStandardDeviations <- function(majors          # major standard deviations pl
   # adding labels
   text(c(-1*majors,0,majors) # x locations
        ,labAdj               # y location
-       ,as.character(c(-1*majors,0,majors)) # values converted to characters
+       ,as.character(c(majors,0,majors)) # values converted to characters
        ,col=color            # color of the text
        ,cex=textCex          # text multiplier
        )
