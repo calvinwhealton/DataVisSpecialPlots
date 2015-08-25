@@ -6,7 +6,7 @@ addCorrelTicks <- function(majors             # correlations for major tick mark
                            ,minors            # correlations for minor tick marks (no lines)
                            ,std_lim           # standard deviation limit
                            ,color='blue'      # color of the lines
-                           ,weight=2          # line weight
+                           ,weight=1          # line weight
                            ,type=1            # line type
                            ,tickAdjMaj=0.02   # adjustment of the major tick marks (fraction of standard deviation limits)
                            ,tickAdjMin=0.01   # adjustment of the minor tick marks (fraction of standard deviation limits)
