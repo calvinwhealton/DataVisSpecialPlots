@@ -30,7 +30,7 @@ dataKern <- read.table('squirrelPopData.csv' # example data file
                        )
 # creating a plot with devault values
 # exporting the plot as a PDF
-pdf(file="example_kernalSmooth1.pdf" # name
+pdf(file="example_kernelSmooth1.pdf" # name
     ,width=7  # in inches
     ,height=7 # in inches
     )
@@ -69,7 +69,7 @@ dev.off()
 #     rectangular kernel (no Gaussian)
 #     additional lines for median, min, and max
 # exporting the plot as a png with some other values
-png(file="example_kernalSmooth2.png" # name
+png(file="example_kernelSmooth2.png" # name
     ,width=1100  # in inches
     ,height=1100 # in inches
     ,res=200
