@@ -73,7 +73,7 @@ kernalSmoothTraces <- function(dataTraces                     # data frame with 
     }
   }else if(norm == 'nonorm'){
     # no normalization of the values
-    kernDensSc <- kernDensSc
+    kernDensSc <- kernDensSc/max(kernDensSc)
   }
   
   # setting limits
