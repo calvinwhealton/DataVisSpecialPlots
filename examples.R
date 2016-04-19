@@ -101,6 +101,20 @@ kernalSmoothTraces(dataTraces                     # data frame with traces as a 
 )
 dev.off()
 
+# creating a plot with devault values
+# exporting the plot as a PDF
+jpeg(file="example_kernelSmooth3.jpg" # name
+    ,width=1100  # in inches
+    ,height=1100 # in inches
+    ,res=200
+)
+kernalSmoothTraces(dataTraces                     # data frame with traces as a funciton of time (or other variable)
+                   ,colPal = brewer.pal(9,'PuBu') # color palette for the plot
+                   ,ptylab = 'Squirrels'
+                   ,ptxlab='Time (months)'
+)
+dev.off()
+
 ################################################
 # example of Taylor diagram
 ###############################################
