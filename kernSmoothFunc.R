@@ -116,7 +116,6 @@ kernalSmoothTraces <- function(dataTraces                     # data frame with 
     }
   }
   
-  print("hi")
   # loops to plot all polygons
   # loop over kernel density at a given step
   for(i in 1:(ncol(kernDensSc)-1)){
@@ -143,8 +142,6 @@ kernalSmoothTraces <- function(dataTraces                     # data frame with 
       )
     }
   }
-  
-  print("hi2")
   
   # adding lines
   if(is.na(linAdd) == F){
