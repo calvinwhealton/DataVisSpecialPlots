@@ -18,3 +18,5 @@ addRMS.R
 addRMS.R
 
 addCorrelations.R
+
+kernalSmoothTraces.R
