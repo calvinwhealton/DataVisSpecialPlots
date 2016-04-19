@@ -302,7 +302,7 @@ std_names <- seq(2,4,by=0.26)
 color_names <- topo.colors(length(names_mod))
 
 # example with many default inputs
-pdf('TaylorDiagram1.pdf'
+pdf('example_TaylorDiagram1.pdf'
     ,heigh=7 # in inches
     ,width=7 # in inches
     )
@@ -319,7 +319,7 @@ makeTaylorDiag(stdevs=std_names               # standard deviations
 dev.off()
 
 # example with many default inputs changed
-png('TaylorDiagram2.png'
+png('example_TaylorDiagram2.png'
     ,heigh=1100 # in inches
     ,width=1100 # in inches
     ,res=200
