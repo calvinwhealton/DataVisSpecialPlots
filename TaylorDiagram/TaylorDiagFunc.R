@@ -68,7 +68,7 @@ makeTaylorDiag <- function(stdevs                    # standard deviations
          ,type = RMSlty
          ,weight=RMSweight
          ,titleAdj = RMStitleAdj
-         ,titleCex = RMStextCex
+         ,textCex = RMStextCex
          ,obsPch = RMSobsPch
          )
   
