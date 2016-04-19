@@ -1,5 +1,4 @@
 # function for adding standard deviation lines (semicircles)
-
 addStandardDeviations <- function(majors          # major standard deviations plotted
                                   ,color='black'  # color of text and lines
                                   ,type=1         # type of line

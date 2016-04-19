@@ -1,5 +1,4 @@
 # function to add RMS semicircles to plot
-
 addRMS <- function(obs             # observed value (center of circle)
                    ,majors         # values for the RMS circules
                    ,std_lim        # standard deviation limit used in plotting
