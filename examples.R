@@ -5,7 +5,7 @@
 
 #### libraries ####
 library("RColorBrewer")   # nice color palettes
-library("grDevices")      # polygon function
+library("grDevices")      # polygon function, some color palettes
 library("graphics")       # color ramp & color ramp palettes
 
 #### loading scripts ####
@@ -15,7 +15,7 @@ setwd('/Users/calvinwhealton/GitHub/DataVisSpecialPlots')
 
 # loading functions defined in each file
 source('kernSmoothFunc.R')
-source('TaylorDiagram.R')
+source('TaylorDiagFunc.R')
 source('Spaghetti.R')
 
 ################################################
@@ -104,3 +104,55 @@ dev.off()
 ################################################
 # example of Taylor diagram
 ###############################################
+
+# model values used in plotting (points on the plot)
+# substitute your values here
+names_mod <- paste("model",seq(1,8),sep='')
+correl_names <- seq(-0.6,0.8,by=0.2)
+std_names <- seq(2,4,by=0.26)
+color_names <- topo.colors(length(names_mod))
+
+# example with many default inputs
+pdf('TaylorDiagram1.pdf'
+    ,heigh=7 # in inches
+    ,width=7 # in inches
+    )
+makeTaylorDiag(stdevs=std_names               # standard deviations
+               ,correls=correl_names                  # correlations
+               ,corMajors=c(seq(0.0,1,0.1),-1*seq(0.0,1,0.1))         # correlations for major tick marks and lines
+               ,corMinors=c(c(0.96,0.97,0.98,0.99),-1*c(0.96,0.97,0.98,0.99))                # correlations for minor tick marks (no lines)
+               ,stdevLim=4                 # limit of standard deviation
+               ,stdevMajors=seq(1,4,1)              # major values for standard deviation
+               ,RMSmajors=seq(1,10,1)                # major values of the RMS
+               ,RMSobj=2
+               ,namMod=names_mod                   # names of models
+)
+dev.off()
+
+# example with many default inputs changed
+png('TaylorDiagram2.png'
+    ,heigh=1100 # in inches
+    ,width=1100 # in inches
+    ,res=200
+)
+makeTaylorDiag(stdevs=std_names               # standard deviations
+               ,correls=correl_names                  # correlations
+               ,corMajors=c(seq(0.0,1,0.1),-1*seq(0.0,1,0.1))         # correlations for major tick marks and lines
+               ,corMinors=c(c(0.96,0.97,0.98,0.99),-1*c(0.96,0.97,0.98,0.99))                # correlations for minor tick marks (no lines)
+               ,stdevLim=4                 # limit of standard deviation
+               ,stdevMajors=seq(1,4,1)              # major values for standard deviation
+               ,RMSmajors=seq(1,10,1)                # major values of the RMS
+               ,RMSobj=2
+               ,namMod=names_mod                   # names of models
+               ,ptsCols=brewer.pal(8,'YlOrRd')               # colors for points
+               ,stdevCol='purple'         # color of lines for standard deviation
+               ,stdevLty=2              # line type for standard deviation
+               ,stdevLwd=2               # line weight for standard deviation
+               ,corColor='green'          # color of the lines for correlation
+               ,corLwd=3                 # line weight for the correlation
+               ,corLty=2                 # line type for the correlation
+               ,ptsPch = 16              # plotting symbol for points
+               ,ptsCex = 2             # multiplier for points plotting
+               ,leg=F                    # legend should be plotted
+)
+dev.off()
