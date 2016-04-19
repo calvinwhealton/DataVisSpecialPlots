@@ -72,6 +72,67 @@ _Additional Lines_
 
 Graph that plots the smoothed kernel density estimate and any of the desired lines.
 
+## `evalPlotIndsRadCon()`
+
+**_General Info_**
+
+Function to plot the results of a Sobol' sensitivity analysis with first-order, total-order, and second-order indices. The results should be formatted as shown in the example files, which were based off of output from the python package `SALib`. The code selects which indices are important based on several user-specified criteria and then only plots results for those indices.
+
+**_Inputs_**:
+
+**df**: Data frame with the S1's, ST's, names of variables, and confidence intervals if using `s1stmeth = 'sig'`.
+
+**dfs2**: Data frame/matrix with S2 values in upper triangular form. Values are assumed in the same order as the S1's and ST's.
+
+**dfs2Conf**: Data frame/matrix with S2 confidence interval values in upper triangular form. Values are assumed in the same order as the S1's and ST's.
+
+**gpNameList**: List with groups. The list is composed of group names with a vector of variables assigned to each. An example entry in the list would be `'group1' = c('x1','x2','x3')`, which would be interpreted as the group "group1" is composed of variables "x1", "x2", and "x3".
+
+**gpColList**: List of colors for each group. Default `col_list = NULL` implies that a Color Brewer palette will be used. User-specified entries should be of the form `'group1'='deepskyblue'`, which means that "group1" would be assigned a color of "deepskyblue".
+
+**s1stgtr**: Used as threshold for evaluating significant indices when `s1stmeth ='gtr'`. Default `s1stgtr=0.01`, so all indices that are greater than 0.01 will be considered significant.
+
+**s1stmeth**: Method for evaluating significance of indices. Default option is `s1stmeth='sig'` for index must be statistically significant based on the confidence intervals. Other option is `s1stmeth='gtr'` for index must be greater than a value to be significant.
+
+**s1stsigCri**: Parameter for controling whether when a variable is significant for plotting. Default `s1stsigCri='either'` so that if either the first- or total-order index is significant the variable will be plotted. If `s1stsigCri='S1'` then only varibles with significant first-order indices will be plotted. If `s1stsigCri='ST'` then only variables with significant total-order indices will be plotted. If `s1stsigCri='both'` then both the first- and total-order indices must be significant for the variable to be plotted.
+
+**s2meth**: Method for evaluating significance of indices. Default option is `s2meth ='sig'` for index must be statistically significant based on the confidence intervals. Other option is `s2meth ='gtr'` for index must be greater (absolute value greater) than a value to be significant.
+
+**s2gtr**: Used as threshold for evaluating significant indices when `s2gtr ='gtr'`. Default `s2gtr =0.01`, so all indices that are greater than 0.01 will be considered significant.
+
+**ptTitle**: Title for the plot. Default is `ptTitle = ''` for no title.
+
+**ptFileNm**: File name for the saved plot. Default `ptFileNm = 'plot'`. Do not include the file extension.
+
+**ptType**: Format for saving the plot. Default `ptType = 'EPS'`. Other options include 'PNG' and 'PDF'.
+
+**ptS2**: Should second-order indices be plotted (connecting lines). Default `ptS2 = TRUE'`.
+
+**ptRadSc**: Radius scaling of plot. Default `ptRadSc = 2`. Increasing `ptRadSc` will increase the spacing between points.
+
+**ptScCirc**: Scaling factor applied to individual circle and line sizes. Default `ptScCirc = 1`. Increasing `ptScCirc` will cause the points and lines to become wider, so closter together.
+
+**ptCircSc**: Power used when scaling the width of circles and lines. Default `ptCircSc = 0.5` for square root, so area of the circles is proportional to the index. If `ptCircSc = 1` then the diameter of the circules would be proportional to the index.
+
+**ptSTthick**: Value used to assign thickness of the total-order sensitivity index circle. Default `ptSTthick = 0.05`. Increasing `ptSTthick` makes the  total-order index circles thicker.
+
+**ptLineCol**: Color for the lines. Default `ptLineCol = 'gray48'`.
+
+**ptStcol**: Color for the total-order index ring. Default `ptStcol = 'black'`.
+
+**ptS1col**: Color for the first-order index circile. Default `ptS1col = 'gray48'`.
+
+**ptVarNmMult**: Location of the variable name with respect to the radius of the plot. Default `ptVarNmMult = 1.2`. Increasing the value will move the names farther away from the circles.
+
+**gpNmMult**: Location of the group name with respect to the radius of the plot. Default `gpNmMult = 1.6`. Increasing the value will move the names farther away from the circles.
+
+**ptLegLoc**: Legend location. Default `ptLegLoc = 'topleft'`. Other options are 'bottomright', 'bottomleft', and 'topright'.
+
+**ptLegPos**: Legend relative position. Default `ptLegPos = 1.9`.
+
+**ptRes**: Resolution of the plot for .png files. Default `ptRes=100`. If getting errors about figure margins change this parameter.
+
+**ptQual**: Quality of the jpeg file in % of the original. Default `ptQual = 90`. Currently not used because jpegs not generated.
 
 ## `makeTaylorDiag()`
 
@@ -94,7 +155,7 @@ _Model Calculations_
 
 **stdevLim**: Limit to the standard devaition values plotted.
 
-**stdevMajors**: Vector of major values of the standard devaitions with semicircular lines. 
+**stdevMajors**: Vector of major values of the standard devaitions with semicircular lines.
 
 **RMSmajors**: Vector of major values of the RMSs with semicircular lines. Can make this larger than `stdevLim` so that the RMS lines will still plot otherwise some might be missing. The RMS lines can be off-centered so the values need to be larger to fill the space. See example plots.
 
@@ -163,5 +224,3 @@ _Legend_
 **legDY**: Vertical offset for legend. Default `legDY = -2`. Change based on the scale of the axis.
 
 **legColumn**: Number of columns for the legend. Default `legColumn = 3`.
-
-

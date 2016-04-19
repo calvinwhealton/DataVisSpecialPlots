@@ -3,9 +3,9 @@ Scripts and Functions for Data Visualization and Specialized Plots
 
 __Introduction__
 
-Most of these plotting functions were the result of questions on stackoverflow.com or graphics that my colleagues wanted to make but were unsure how to develop. Some of the methods of representing the data were developed by others, but I did implement it in code. Generally, the code is designed to be easily "hacked" by users so that they can modify inputs to control the output. 
+Most of these plotting functions were the result of questions on stackoverflow.com or graphics that my colleagues wanted to make but were unsure how to develop. Some of the methods of representing the data were developed by others, but I did implement it in code. Generally, the code is designed to be easily "hacked" by users so that they can modify inputs to control the output.
 
-Currently, there are the following dependencies on R libraries: RcolorBrewer, grDevices, graphics.
+Currently, there are the following dependencies on R libraries: RcolorBrewer, grDevices, graphics, and protrix.
 
 The specialized plots available are: Taylor Diagram and Smoothed Desnity Estimate of Traces. More details are provided below.
 
@@ -23,5 +23,3 @@ This plot is designed to plot the results of several optimization/simulation run
 ----
 Taylor Diagrams are used for comparing model output to the observed data and plots the standard deviation, RMS difference, and correlation on one plot. I initially developed the code in response to a question on stackoverflow.com (http://stackoverflow.com/questions/24999338/r-taylor-diagram-plotting/32172086#32172086), where the desire was to more closely control the format of the plot than was aviable in the package they were using. The code is based on equations and descriptoins found in Taylor (2001, Summarizing multiple aspects of model performance in a single diagram, JGR: Atmospheres, http://onlinelibrary.wiley.com/doi/10.1029/2000JD900719/abstract) and http://www-pcmdi.llnl.gov/about/staff/Taylor/CV/Taylor_diagram_primer.pdf. An example plot is given below. More detail on the graphical options is aviable in "documentation.md".
 ![Image of a Taylor Diagram](https://github.com/calvinwhealton/DataVisSpecialPlots/blob/master/example_TaylorDiagram2.png)
-
-
