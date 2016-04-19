@@ -28,7 +28,9 @@ This plot is designed to plot the results of several optimization/simulation run
 
 ##__Sobol' Sensitivity Analysis Radial Convergence__
 ----
-Sobol' sensitivity analysis is used for evaluating the impact of uncertain model inputs on a model output. The results are often divided into first-order, total-order, and second-order indices. Inputs with high values of the indices contribute more to the uncertainty (variance) in the output. These plots show the indicies visually. Any Sobol' sensitivity analysis that is formatted in the same way as the sample files can be used, but this function was originally developed for use with the Python package `SALib` (https://github.com/SALib/SALib)
+Sobol' sensitivity analysis is used for evaluating the impact of uncertain model inputs on a model output. The results are often divided into first-order, total-order, and second-order indices. Inputs with high values of the indices contribute more to the uncertainty (variance) in the output. These plots show the indicies visually. Any Sobol' sensitivity analysis that is formatted in the same way as the sample files can be used, but this function was originally developed for use with the Python package `SALib` (https://github.com/SALib/SALib). Examples of these types of plot are given in Butler (2014), although this code was not used to make these.
+
+Butler, M.P., P.M. Reed, K. Fisher-Vanden, K. Keller, T. Wagener (2014). Inaction and climate stabilization uncertainties lead to severe economic risks. Climactic Change 127:463-474
 
 ![Sobol Sensitivity Analysis Output](https://github.com/calvinwhealton/DataVisSpecialPlots/blob/master/SobolSensitivityRadialConvergence/plot.jpg)
 
