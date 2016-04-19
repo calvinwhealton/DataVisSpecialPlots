@@ -22,13 +22,17 @@ makeTaylorDiag <- function(stdevs                    # standard deviations
                            ,corTickAdjMin=0.01       # adjustment of the minor tick marks (fraction of standard deviation limits) for correlation
                            ,corTextCex=0.5           # multiplier of text size for correlation labels
                            ,corTextAdj=0.05          # adjustment of text location for correlation
+                           ,RMScolor="green"         # color for RMS lines
+                           ,RMSlty=1                 # line type for RMS lines
+                           ,RMSweight=1              # line weight for RMS lines
+                           ,RMStitleAdj=-1.2         # title adjustment for RMS axis
+                           ,RMStextCex=0.7           # character expansion for RMS title
+                           ,RMSobsPch = 15           # plotting symbol for RMS point 
                            ,ptsPch = 19              # plotting symbol for points
                            ,ptsCex = 1.5             # multiplier for points plotting
                            ,leg=T                    # legend should be plotted
                            ,legDY=-2                 # vertical displacement of legend
                            ,legColumn=3              # number of columns in legend
-                           
-  
 ){
   
   # initializing the plot areas
@@ -47,12 +51,26 @@ makeTaylorDiag <- function(stdevs                    # standard deviations
   # adding correlation lines and ticks
   addCorrelTicks(majors=corMajors
                  ,minors=corMinors
-                 ,std_lim=stdevLim)
+                 ,std_lim=stdevLim
+                 ,color=corColor
+                 ,weight = corLwd
+                 ,type = corLty
+                 ,tickAdjMaj = corTickAdjMaj
+                 ,tickAdjMin = corTickAdjMin
+                 ,textCex = corTextCex
+                 ,textAdj = corTextAdj)
   
   # adding RMS lines
   addRMS(majors=RMSmajors
          ,obs=RMSobj
-         ,std_lim=stdevLim)
+         ,std_lim=stdevLim
+         ,color=RMScolor
+         ,type = RMSlty
+         ,weight=RMSweight
+         ,titleAdj = RMStitleAdj
+         ,titleCex = RMStextCex
+         ,obsPch = RMSobsPch
+         )
   
   # adding points
   # assigning colors
@@ -104,12 +122,12 @@ initializePlotArea <- function(std_lim){
 
 # function for adding standard deviation lines (semicircles)
 addStandardDeviations <- function(majors          # major standard deviations plotted
-                                  ,color='black'  # color of text and lines
-                                  ,type=1         # type of line
-                                  ,weight=1       # weight of the line 
-                                  ,labAdj=-0.2    # adjustment of the labels
-                                  ,titleAdj=-0.6  # adjustment of the axis title
-                                  ,textCex=0.7    # multiplier of label text size
+                                  ,color          # color of text and lines
+                                  ,type           # type of line
+                                  ,weight         # weight of the line 
+                                  ,labAdj         # adjustment of the labels
+                                  ,titleAdj       # adjustment of the axis title
+                                  ,textCex        # multiplier of label text size
 ){
   
   # adding semicircles for the standard deviation
@@ -143,12 +161,12 @@ addStandardDeviations <- function(majors          # major standard deviations pl
 addRMS <- function(obs             # observed value (center of circle)
                    ,majors         # values for the RMS circules
                    ,std_lim        # standard deviation limit used in plotting
-                   ,color='green'  # color of text and lines
-                   ,type=1         # type of line
-                   ,weight=1       # weight of the line 
-                   ,titleAdj=-1.2  # adjustment of the axis title
-                   ,textCex=0.7    # text multiplier
-                   ,obsPch=15      # pch for the observation
+                   ,color          # color of text and lines
+                   ,type           # type of line
+                   ,weight         # weight of the line 
+                   ,titleAdj       # adjustment of the axis title
+                   ,textCex        # text multiplier
+                   ,obsPch         # pch for the observation
 ){
   
   # adding rms semicircles
@@ -228,12 +246,12 @@ addCorrelTicks <- function(majors             # correlations for major tick mark
                            ,minors            # correlations for minor tick marks (no lines)
                            ,std_lim           # standard deviation limit
                            ,color='blue'      # color of the lines
-                           ,weight=1          # line weight
-                           ,type=1            # line type
-                           ,tickAdjMaj=0.02   # adjustment of the major tick marks (fraction of standard deviation limits)
-                           ,tickAdjMin=0.01   # adjustment of the minor tick marks (fraction of standard deviation limits)
-                           ,textCex=0.5       # multiplier of text size for correlation labels
-                           ,textAdj=0.05      # adjustment of text location
+                           ,weight            # line weight
+                           ,type              # line type
+                           ,tickAdjMaj        # adjustment of the major tick marks (fraction of standard deviation limits)
+                           ,tickAdjMin        # adjustment of the minor tick marks (fraction of standard deviation limits)
+                           ,textCex           # multiplier of text size for correlation labels
+                           ,textAdj           # adjustment of text location
 ){
   
   # adding lines for major tick marks
