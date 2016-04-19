@@ -30,7 +30,7 @@ This plot is designed to plot the results of several optimization/simulation run
 ----
 Sobol' sensitivity analysis is used for evaluating the impact of uncertain model inputs on a model output. The results are often divided into first-order, total-order, and second-order indices. Inputs with high values of the indices contribute more to the uncertainty (variance) in the output. These plots show the indicies visually. Any Sobol' sensitivity analysis that is formatted in the same way as the sample files can be used, but this function was originally developed for use with the Python package `SALib` (https://github.com/SALib/SALib)
 
-![Sobol Sensitivity Analysis Output](https://github.com/calvinwhealton/DataVisSpecialPlots/blob/master/SobolSensitivityRadialConvergence/exam2.eps)
+![Sobol Sensitivity Analysis Output](https://github.com/calvinwhealton/DataVisSpecialPlots/blob/master/SobolSensitivityRadialConvergence/plot.jpg)
 
 ##__Taylor Diagram__
 ----
