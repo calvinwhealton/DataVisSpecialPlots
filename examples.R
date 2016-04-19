@@ -10,13 +10,14 @@ library("graphics")       # color ramp & color ramp palettes
 
 #### loading scripts ####
 # changing working directory for location of scripts
-# must change based on local machine
-setwd('/Users/calvinwhealton/GitHub/DataVisSpecialPlots')
 
-# loading functions defined in each file
+# must change based on local machine
+# smoothed kernel density
+setwd('/Users/calvinwhealton/GitHub/DataVisSpecialPlots/SmoothKernelTraces')
 source('kernSmoothFunc.R')
+
+setwd('/Users/calvinwhealton/GitHub/DataVisSpecialPlots/TaylorDiagram')
 source('TaylorDiagFunc.R')
-source('Spaghetti.R')
 
 ################################################
 # example of smoothed kernel density of traces
