@@ -4,6 +4,10 @@ Only the main functions are documented in the following code, not functions call
 
 ## `kernelSmoothTraces()`
 
+**_General Info_**:
+
+This function plots a smoothed kernel density estimate based on several traces of a simulation/optimization run. The data should be formatted in a data frame with a time/distance/NFE index and the value for each trace at that index. Examples might be monthy values of the squirrel population based on 50 simulations of the population (in example, actually the data is made up) or the hypervolume from an optimization algorithm for different number of function evaluations with different random seeds. Saving a plot as a PDF can be memory intensive because the kernel is estimated at 512 places (default values) for each time step (ns steps), so the total number of polygons drawn is 511*(ns-1). For 20 time steps, this would be 9709 polygons (it takes some time), so consider using png or jpg as alternatives.
+
 **_Inputs_**:
 
 _Data Frame and Miscellaneous_
@@ -64,6 +68,100 @@ _Additional Lines_
 
 **linLwd**: Vector of line weights for lines (same order as `linAdd`). Default `linLwd = 2`, increase for thicker lines, decrease for thinner lines.
 
-**_Output_**
+**_Output_**:
 
 Graph that plots the smoothed kernel density estimate and any of the desired lines.
+
+
+## `makeTaylorDiag()`
+
+**_General Info_**:
+
+Function to make a Taylor diagram. The code calls several subsidiary functions for adding the correlation, RMS, and standard deviation lines. Many graphical parameters must be specified including the tick marks and values of the plotted "grid".
+
+
+**_Input**:
+
+_Model Calculations_
+
+**stdevs**: Vector of standard deviations of the models. Must be specified by the user.
+
+**correls**: Vector of correlations of the model with the observation. Must be specified by the user.
+
+**corMajors**: Vector of values of the correlations that will have lines extending to the center of the plot.
+
+**CorMinors**: Vector of values of the correlations that will only have tick marks.
+
+**stdevLim**: Limit to the standard devaition values plotted.
+
+**stdevMajors**: Vector of major values of the standard devaitions with semicircular lines. 
+
+**RMSmajors**: Vector of major values of the RMSs with semicircular lines. Can make this larger than `stdevLim` so that the RMS lines will still plot otherwise some might be missing. The RMS lines can be off-centered so the values need to be larger to fill the space. See example plots.
+
+**RMSobj**: Offset for the RMS center.
+
+**namMod**: Vector of the names of the models.
+
+_Points_
+
+**ptsCols**: Vector of colors for the models/points. Default `ptsCols = NA` uses a the `topo.colors()` in grDevices. Must be as long as the number of models.
+
+_Standard Deviation Grid_
+
+**stdevCol**: Color of the standard devaition grid lines. Default `stdevCol = 'black'`. Can be changed to any R color.
+
+**stdevLwd**: Line weight of the standard deviation grid lines. Default `stdevLwd = 1`. Increase to make grid lines thicker. Decrease to make grid lines thinner.
+
+**stdevLty**: Line type of the standard deviation grid lines. Default `stdevLty = 1` for solid lines. Can change to any R line type.
+
+**stdevLabAdj**: Adjustment to the standard deviation label location. Default `stdevLabAdj = -0.2` for moving it 0.2 units below the axis. Will need to change based on the scale of the plot.
+
+**stdevTitleLAdj**: Adjustment to the standard deviation axis title location. Default `stdevLabAdj = -0.6` for moving it 0.6 units below the axis. Will need to change based on the scale of the plot.
+
+**stdevTextCex**: Character expansion for the standard devation text. Default `stdevTextCex = 0.7`. Increase to make text larger, decrease to make text smaller.
+
+_Correlation Grid_
+
+**corColor**: Color for the correlation grid. Default `corColor = 'blue'`. Can change to any R color.
+
+**corLwd**: Line weight for the correlation grid. Default `corLwd = 1`. Increase for thicker grid lines and decrease for thinner grid liens.
+
+**corLty**: Line type for the correlation grid. Default `corLty = 1` for a solid line. Can use any R line type.
+
+**corTickAdjMaj**: Adjustment for the major correlation tick labels. Default `corTickAdjMaj = 0.02`. Increase value for a larger spacing.
+
+**corTickAdjMin**: Adjustment for the minor correlation tick labels. Default `corTickAdjMin = 0.01`. Increase value for larger spacing.
+
+**corTextCex**: Character expansion for the correlation lables. Default `corTextCex = 0.5`. Increase for larger text.
+
+**corTextAdj**: Adjustment for the title. Default `corTextAdj = 0.05`. Increase to make the title farther above the axis.
+
+_RMS Grid_
+
+**RMScolor**: Color for the RMS grid. Default `RMScolor = 'green'` for a green grid. Can be changed to any valid R color.
+
+**RMSlty**: Line type for the RMS grid. Default `RMSlty = 1` for a solid line. Any valid R line type can be used.
+
+**RMSweight**: Line weight for the RMS grid. Default `RMSlwd = 1`. Increase for thicker grid lines.
+
+**RMStitleAjd**: Adjustment for the location of the RMS title. Default `RMStitleAdj = -1.2` for 1.2 units below the horizontal axis.
+
+**RMStextCex**: Character expansion for the RMS title. Default `RMStextCex = 0.7`. Increase for larger RMS  axis title.
+
+**RMSobsPch**: Plotting symbol for the center of the RMS axis. Default `RMSobsPch = 15` for a square. Any valid R plotting symbol can be used.
+
+_Points_
+
+**ptsPch**: Plotting symbol for model points. Default `ptsPch = 19` for a circle. Any valid R plotting symbol can be used.
+
+**ptsCex**: Plotting symbol expansion for the model points. Default `ptsCex = 1.5`. Increase for larger model points and decrease for smaller model points.
+
+_Legend_
+
+**leg**: Should legend be plotted. Default `leg = T`.
+
+**legDY**: Vertical offset for legend. Default `legDY = -2`. Change based on the scale of the axis.
+
+**legColumn**: Number of columns for the legend. Default `legColumn = 3`.
+
+
