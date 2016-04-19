@@ -34,7 +34,7 @@ pdf(file="example_kernelSmooth1.pdf" # name
     ,width=7  # in inches
     ,height=7 # in inches
     )
-kernalSmoothTraces(dataTraces                     # data frame with traces as a funciton of time (or other variable)
+kernelSmoothTraces(dataTraces                     # data frame with traces as a funciton of time (or other variable)
                    ,colPal = brewer.pal(9,'PuBu') # color palette for the plot
                    ,colAssign='mean'              # method of assigning color
                    ,colN = 100                    # number of colors
@@ -74,7 +74,7 @@ png(file="example_kernelSmooth2.png" # name
     ,height=1100 # in inches
     ,res=200
 )
-kernalSmoothTraces(dataTraces                     # data frame with traces as a funciton of time (or other variable)
+kernelSmoothTraces(dataTraces                     # data frame with traces as a funciton of time (or other variable)
                    ,colPal = brewer.pal(11,'RdBu') # color palette for the plot
                    ,colAssign='logmean'              # method of assigning color
                    ,colN = 100                    # number of colors
@@ -108,7 +108,7 @@ jpeg(file="example_kernelSmooth3.jpg" # name
     ,height=1100 # in inches
     ,res=200
 )
-kernalSmoothTraces(dataTraces                     # data frame with traces as a funciton of time (or other variable)
+kernelSmoothTraces(dataTraces                     # data frame with traces as a funciton of time (or other variable)
                    ,colPal = brewer.pal(9,'PuBu') # color palette for the plot
                    ,ptylab = 'Squirrels'
                    ,ptxlab='Time (months)'

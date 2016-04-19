@@ -1,6 +1,6 @@
 # function for completing smoothing traces using
 # kernel density and plotting the results
-kernalSmoothTraces <- function(dataTraces                     # data frame with traces as a funciton of time (or other variable)
+kernelSmoothTraces <- function(dataTraces                     # data frame with traces as a funciton of time (or other variable)
                                ,colPal = brewer.pal(9,'PuBu') # color palette for the plot
                                ,colAssign='mean'              # method of assigning color
                                ,colN = 100                    # number of colors
