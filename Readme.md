@@ -18,7 +18,9 @@ The specialized plots available are:
 
 More information on the functions is available in 'documentation.md'. The script 'examples.R' shows the methods for calling the functions and generating the graphs.
 
-**This code is provided under the MIT License.**
+**This code is provided under the MIT License. Please cite this repository as (year of latest commit, commit ID, and date retrieved should be substituted into the format):**
+
+Whealton, C.A. (\<year>). "DataVisSpecialPlots-Scripts and Functions for Data Visualization and Specialized Plots ". GitHub repository. https://github.com/calvinwhealton/DataVisSpecialPlots \<commit ID>, retrieved \<date>.
 
 ##__Smoothed Density Estimate of Traces__
 ----
