@@ -6,14 +6,20 @@ __Introduction__
 Most of these plotting functions were the result of questions on stackoverflow.com or graphics that my colleagues wanted to make but were unsure how to develop. Some of the methods of representing the data were developed by others, but I did implement it in code. Generally, the code is designed to be easily "hacked" by users so that they can modify inputs to control the output.
 
 Currently, there are the following dependencies on R libraries:
+
 • RcolorBrewer
+
 • grDevices
+
 • graphics
+
 • protrix
 
 The specialized plots available are: 
 • Taylor Diagram
+
 • Smoothed Desnity Estimate of Traces
+
 • Sobol' Sensitivity Analysis Radial Convergence Plot
 
 More information on the functions is available in 'documentation.md'. The script 'examples.R' shows the methods for calling the functions and generating the graphs.
